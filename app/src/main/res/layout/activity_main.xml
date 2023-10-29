@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:contex=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="274dp"
+            android:layout_height="294dp"
+            android:layout_alignBottom="@+id/feedbckTextView"
+            android:layout_centerHorizontal="true"
+            android:foregroundGravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="118dp"
+            android:rotationX="19"
+            android:src="@drawable/lr_logo" />
+
+        <TextView
+            android:id="@+id/feedbckTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="Merci pour votre achat.
+            Nous serions ravis d'entendre vos commentaires."
+            android:textColor="@color/black"
+            android:textSize="25dp"
+
+
+            />
+
+        <Button
+            android:id="@+id/feedback_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/feedbckTextView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="157dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="114dp"
+            android:background="@drawable/rounded_corner"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:drawablePadding="20dp"
+            android:drawableTint="#ff0000"
+            android:shadowColor="@color/black"
+            android:text="Envoyer Feedback "
+            android:textColor="@color/white"
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp" />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/logoImageView"
+            android:background="@drawable/baseline_clear_24" />
+
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
