@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/questionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_above="@+id/Validate"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="579dp"
+        android:gravity="center"
+        android:text="Placeholder Question"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+
+    <ImageView
+        android:id="@+id/questionImageView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/questionTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-11dp"
+        android:layout_marginEnd="16dp"
+        android:foregroundGravity="center_horizontal|center_vertical"
+        android:src="@drawable/dummy_image" />
+
+
+    <Button
+        android:id="@+id/Validate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical|center_horizontal|bottom|center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+
+
+        android:background="@drawable/rounded_corner"
+        android:drawablePadding="20dp"
+        android:drawableTint="#ff0000"
+        android:shadowColor="@color/black"
+        android:text="Valider"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
