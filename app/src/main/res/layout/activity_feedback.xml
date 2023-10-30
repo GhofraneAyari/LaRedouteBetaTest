@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FeedbackActivity"
+    tools:ignore="ExtraText"
+    android:id="@+id/fragmentGroup">
+
+    <!--        android:layout_height="294dp"-->
+    <ImageView
+        android:id="@+id/coilImage"
+        android:layout_width="fill_parent"
+        android:layout_marginTop="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:foregroundGravity="center"
+        android:layout_marginBottom="118dp"
+        android:src="@drawable/loading" />
+
+    <me.relex.circleindicator.CircleIndicator3
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black"/>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/indicator"
+        android:layout_centerInParent="true"
+        android:contentDescription="A ViewPager for reviewing products"></androidx.viewpager2.widget.ViewPager2>
+
+    <Button
+        android:id="@+id/clear_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:alpha="0.5"
+        android:background="@drawable/baseline_clear_24" />
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Suivant"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/rounded_corner"
+        android:textColor="@color/white"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+
+        />
+
+
+</RelativeLayout>
