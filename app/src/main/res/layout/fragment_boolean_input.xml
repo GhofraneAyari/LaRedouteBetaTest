@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:id="@+id/BooleanContainer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_marginTop="350dp"
+    >
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recommanderiez-vous cet article à un ami ?"
+        android:text="Testtesttesttest"
         android:textSize="18sp"
-        android:textColor="#000"/>
+        android:textStyle="bold"
+        android:textColor="#000" />
 
     <CheckBox
         android:id="@+id/yesCheckBox"
@@ -28,11 +30,18 @@
         android:text="Non"
         android:layout_marginTop="8dp"/>
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="Suivant"
-        android:layout_marginTop="16dp"/>
+<!--    <Button-->
+<!--        android:id="@+id/nextButton"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Suivant"-->
+<!--        android:layout_marginTop="75dp"-->
+<!--        android:background="@drawable/rounded_corner"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_gravity="center_vertical|center_horizontal"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+
+<!--        />-->
 </LinearLayout>
+

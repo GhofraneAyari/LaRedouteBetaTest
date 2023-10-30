@@ -69,20 +69,20 @@
             android:drawablePadding="20dp"
             android:drawableTint="#ff0000"
             android:shadowColor="@color/black"
-            android:text="Envoyer Feedback "
+            android:text="Commencer Feedback "
             android:textColor="@color/white"
             android:topLeftRadius="10dp"
             android:topRightRadius="10dp" />
 
         <Button
             android:id="@+id/clear_button"
-            android:layout_width="35dp"
+            android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="22dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@+id/logoImageView"
-            android:background="@drawable/baseline_clear_24" />
+            android:background="@drawable/baseline_cancel_24" />
 
 
     </RelativeLayout>

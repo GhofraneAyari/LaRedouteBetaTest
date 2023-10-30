@@ -8,7 +8,10 @@
 
 
     <style name="SplashScreenTheme" parent="Theme.AppCompat.DayNight.NoActionBar" >
+
         
 
     </style>
+
+
 </resources>

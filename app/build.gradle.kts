@@ -72,5 +72,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("me.relex:circleindicator:2.1.6")
+    implementation ("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("io.coil-kt:coil:2.4.0")
 
 }
