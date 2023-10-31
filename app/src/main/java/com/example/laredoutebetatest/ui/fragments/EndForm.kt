@@ -1,6 +1,7 @@
-package com.example.laredoutebetatest.ui.theme.fragments
+package com.example.laredoutebetatest.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.data.model.NameValue
 
-class EndFormFragment : Fragment(), DataCollecting {
+class EndForm : Fragment(), DataCollecting {
     private var collectedUserData: List<NameValue> = emptyList()
 
     override fun onCreateView(
@@ -24,6 +25,17 @@ class EndFormFragment : Fragment(), DataCollecting {
         super.onViewCreated(view, savedInstanceState)
 
         val sendButton = view.findViewById<Button>(R.id.sendAvis)
+        val nextButton = view.findViewById<Button>(R.id.nextButton)
+
+
+//        if (nextButton != null) {
+//            // Hide the nextButton
+//            nextButton.visibility = View.GONE
+//        } else {
+//            // Log an error message if the nextButton is not found
+//            Log.e("EndFormFragment", "nextButton not found in the layout")
+//        }
+
 
         sendButton.setOnClickListener {
             // Send a POST request with the collected data
@@ -32,6 +44,7 @@ class EndFormFragment : Fragment(), DataCollecting {
             // Close the app or perform any other actions
             activity?.finish()
         }
+
     }
 
     override fun onUserDataCollected(data: List<NameValue>) {

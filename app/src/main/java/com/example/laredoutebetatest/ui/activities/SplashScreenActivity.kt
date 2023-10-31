@@ -1,4 +1,4 @@
-package com.example.laredoutebetatest.ui.theme.activities
+package com.example.laredoutebetatest.ui.activities
 
 import android.content.Intent
 
@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.laredoutebetatest.FeedbackActivity
-import com.example.laredoutebetatest.MainActivity
 import com.example.laredoutebetatest.R
+import com.example.laredoutebetatest.util.Constants.authKey
 
 
 class SplashScreenActivity : AppCompatActivity() {
@@ -19,9 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         //Todo: migrate to splash screen API: double splash screens
 
-        // SplashScreen timer
         Handler(Looper.getMainLooper()).postDelayed({
-            var authKey = "LTllMDMtZTE3ZDQyYTIxM2Fi"
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("authorizationKey", authKey)
             startActivity(intent)

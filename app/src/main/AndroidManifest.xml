@@ -15,10 +15,10 @@
         android:theme="@style/Theme.LaRedouteBetaTest"
         tools:targetApi="31">
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".ui.activities.FeedbackActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.theme.activities.SplashScreenActivity"
+            android:name=".ui.activities.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme"
             android:windowSplashScreenBackground="@color/ic_logo_background">
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.LaRedouteBetaTest">
