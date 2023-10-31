@@ -17,8 +17,8 @@
         android:text="TestTEST"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="18sp"
-        android:textColor="#000" />
+        android:textSize="22sp"
+        android:textColor="@color/black" />
 
     <ImageView
         android:id="@+id/image_product"
@@ -26,14 +26,23 @@
         android:layout_height="wrap_content"
         android:src="@drawable/loading" />
 
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TestTEST"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/black" />
+
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
-
+        android:layout_marginBottom="30dp"
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="20dp" />
 
 </LinearLayout>

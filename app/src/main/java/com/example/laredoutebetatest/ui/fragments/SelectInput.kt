@@ -17,6 +17,7 @@ import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.data.model.NameValue
+import com.example.laredoutebetatest.data.model.ReviewFormResponse
 
 class SelectInput : Fragment(), FragmentListener {
     private var selectedValue: String? = null
@@ -29,49 +30,43 @@ class SelectInput : Fragment(), FragmentListener {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_select_input, container, false)
         val spinner = rootView.findViewById<Spinner>(R.id.selectSpinner)
-        val reviewFormData = dataViewModel.reviewFormData
+        val titleTextView = rootView.findViewById<TextView>(R.id.titleTextView)
 
-        if (reviewFormData != null) {
-            val options = getSelectOptions()
+        val fieldId = arguments?.getString("fieldId")
 
-            Log.e("DATA FROM SELECT", reviewFormData.fields.toString())
+        if (fieldId != null) {
+            val reviewFormData = dataViewModel.reviewFormData
 
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+            if (reviewFormData != null) {
+                val field = reviewFormData.fields?.find { it.id == fieldId }
+                if (field != null) {
+                    titleTextView.text = field.title
 
-            spinner.adapter = adapter
+                    val options = getSelectOptions(field)
+                    val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, options)
+                    spinner.adapter = adapter
 
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                    selectedValue = options[position]
-                    collectUserData()
+                    spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                            selectedValue = options[position]
+                            collectUserData()
+                        }
+
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                            // Handle when nothingis selected
+                        }
+                    }
                 }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {
-                    // Handle when nothing is selected, if needed
-                }
-            }
-
-        } else {
-            Toast.makeText(requireContext(), "Review data is not available", Toast.LENGTH_SHORT).show()
-        }
-
-           reviewFormData?.let { response ->
-
-            val textField = response.fields?.find { it.id == "lengthOfOwnership" }
-            if (textField != null) {
-
-                val titleTextView = rootView.findViewById<TextView>(R.id.titleTextView)
-                titleTextView.text = textField.title.toString()
+            } else {
+                Toast.makeText(requireContext(), "Review data is not available", Toast.LENGTH_SHORT).show()
             }
         }
+
         return rootView
     }
 
-    private fun getSelectOptions(): List<String> {
-        val reviewFormData = dataViewModel.reviewFormData
-        val firstSelectField = reviewFormData?.fields?.find { it.type == "SelectInput" }
-        val selectedOptions = firstSelectField?.options?.map { it.name ?: "" } ?: emptyList()
-        return selectedOptions
+    private fun getSelectOptions(field: ReviewFormResponse.ReviewField): List<String> {
+        return field.options?.map { it.name ?: "" } ?: emptyList()
     }
 
     override fun collectUserData() {

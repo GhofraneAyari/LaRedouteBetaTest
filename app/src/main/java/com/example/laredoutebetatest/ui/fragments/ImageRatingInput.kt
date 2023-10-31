@@ -14,11 +14,13 @@ import coil.load
 import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
-import com.example.laredoutebetatest.data.model.NameValue
+import com.example.laredoutebetatest.data.model.ReviewFormResponse
 import com.example.laredoutebetatest.util.Constants
 import com.example.laredoutebetatest.util.Constants.COIL_IMAGE_ALPHA_HIDDEN
 import com.example.laredoutebetatest.util.Constants.COIL_IMAGE_ALPHA_VISIBLE
 import com.example.laredoutebetatest.util.Constants.DATA_KEY_USER_RATING
+import com.example.laredoutebetatest.data.model.NameValue
+
 
 class ImageRatingInput : Fragment(), FragmentListener {
     private val myDataViewModel: DataViewModel by activityViewModels()
@@ -62,7 +64,9 @@ class ImageRatingInput : Fragment(), FragmentListener {
             if (textField != null) {
 
                 val titleTextView = rootView.findViewById<TextView>(R.id.titleTextView)
+                val descriptionTextView = rootView.findViewById<TextView>(R.id.description)
                 titleTextView.text = textField.title.toString()
+                descriptionTextView.text = response.name
             }
         }
 
@@ -82,6 +86,7 @@ class ImageRatingInput : Fragment(), FragmentListener {
 
     private fun sendData(name: String, value: String) {
         val nameValue = NameValue(name, value)
+        Log.e("RECIEVED DATA FROM IMAGE RATING", nameValue.toString())
         dataCollectingListener?.onUserDataCollected(listOf(nameValue))
     }
 }

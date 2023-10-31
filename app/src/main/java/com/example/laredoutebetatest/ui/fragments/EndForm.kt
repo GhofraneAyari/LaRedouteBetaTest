@@ -10,9 +10,12 @@ import androidx.fragment.app.Fragment
 import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.data.model.NameValue
+import com.example.laredoutebetatest.data.model.ReviewFormResponse
 
-class EndForm : Fragment(), DataCollecting {
+class EndForm : Fragment(){
     private var collectedUserData: List<NameValue> = emptyList()
+    private var reviewField: ReviewFormResponse.ReviewField? = null
+    private var nextButton: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,37 +26,24 @@ class EndForm : Fragment(), DataCollecting {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        nextButton = view.findViewById(R.id.nextButton)
+        updateNextButtonText()
 
-        val sendButton = view.findViewById<Button>(R.id.sendAvis)
-        val nextButton = view.findViewById<Button>(R.id.nextButton)
-
-
-//        if (nextButton != null) {
-//            // Hide the nextButton
-//            nextButton.visibility = View.GONE
-//        } else {
-//            // Log an error message if the nextButton is not found
-//            Log.e("EndFormFragment", "nextButton not found in the layout")
-//        }
-
-
-        sendButton.setOnClickListener {
-            // Send a POST request with the collected data
-            sendUserData(collectedUserData)
-
-            // Close the app or perform any other actions
+        nextButton?.setOnClickListener {
+//            sendUserData(collectedUserData)
             activity?.finish()
         }
-
     }
 
-    override fun onUserDataCollected(data: List<NameValue>) {
-        // Handle the collected user data received from other fragments
-        // You can store the data for sending when the Send button is clicked
-        collectedUserData = data
-    }
+//    override fun onUserDataCollected(data: List<NameValue>) {
+//        collectedUserData = data
+//        updateNextButtonText()
+//    }
 
-    override fun sendUserData(userData: List<NameValue>) {
-        // Implement your code to send the user data to the server here
+    private fun updateNextButtonText() {
+        if (reviewField != null && reviewField?.type == "TextAreaInput") {
+            nextButton?.text = reviewField?.buttonText ?: "Next"
+        }
     }
 }
+

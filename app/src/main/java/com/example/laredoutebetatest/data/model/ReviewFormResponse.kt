@@ -15,10 +15,7 @@ data class ReviewFormResponse(
         val buttonText: String?
     )
 
-    data class NameValue(
-        val name: String?,
-        val value: String?
-    )
+
 }
 
 

@@ -13,8 +13,8 @@ import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.util.Constants
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.data.model.DataReceiver
-import com.example.laredoutebetatest.data.model.NameValue
 import com.example.laredoutebetatest.data.model.ReviewFormResponse
+import com.example.laredoutebetatest.data.model.NameValue
 import com.example.laredoutebetatest.data.networking.ApiService
 import com.example.laredoutebetatest.data.networking.ServiceGenerator
 import com.example.laredoutebetatest.ui.fragments.FragmentFactory

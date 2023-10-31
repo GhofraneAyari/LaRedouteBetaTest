@@ -19,7 +19,6 @@ import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
 
 
 class BooleanInput : Fragment(), FragmentListener {
-    private lateinit var rootView: View
     private lateinit var yesCheckBox: CheckBox
     private lateinit var noCheckBox: CheckBox
     private var dataCollectingListener: DataCollecting? = null
@@ -29,7 +28,7 @@ class BooleanInput : Fragment(), FragmentListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        rootView = inflater.inflate(R.layout.fragment_boolean_input, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_boolean_input, container, false)
         yesCheckBox = rootView.findViewById(R.id.yesCheckBox)
         noCheckBox = rootView.findViewById(R.id.NoCheckBox)
 
@@ -40,15 +39,11 @@ class BooleanInput : Fragment(), FragmentListener {
         super.onViewCreated(view, savedInstanceState)
 
         myDataViewModel.reviewFormData?.let { response ->
-            // Find the field with type "BooleanInput"
             val booleanInputField = response.fields?.find { it.type == "BooleanInput" }
             if (booleanInputField != null) {
-
-                val titleTextView = rootView.findViewById<TextView>(R.id.boolTitleTextView)
+                val titleTextView = view.findViewById<TextView>(R.id.boolTitleTextView)
                 titleTextView.text = booleanInputField.title.toString()
 
-
-                // Populate the checkboxes based on the options
                 booleanInputField.options?.forEach { option ->
                     when (option.value) {
                         "true" -> {

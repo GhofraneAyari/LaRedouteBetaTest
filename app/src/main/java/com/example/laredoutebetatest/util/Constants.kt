@@ -17,6 +17,7 @@ object Constants {
     const val BOOLEAN_FALSE = "false"
 
     const val DATA_KEY_USER_RATING = "userRating"
+    const val DATA_KEY_USER_TEXT_INPUT = "userTextInput"
     const val COIL_IMAGE_ALPHA_VISIBLE = 1.0f
     const val COIL_IMAGE_ALPHA_HIDDEN = 0.0f
 }

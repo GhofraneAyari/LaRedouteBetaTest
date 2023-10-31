@@ -74,5 +74,7 @@ dependencies {
     implementation("me.relex:circleindicator:2.1.6")
     implementation ("androidx.fragment:fragment-ktx:1.6.1")
     implementation("io.coil-kt:coil:2.4.0")
+    debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 
 }
