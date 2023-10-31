@@ -14,7 +14,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quelle note donneriez-vous ?"
+        android:text="TestTEST"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:textSize="18sp"
@@ -36,15 +36,4 @@
         android:stepSize="1"
         android:layout_marginTop="8dp" />
 
-<!--    <Button-->
-<!--        android:id="@+id/nextButton"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Suivant"-->
-<!--        android:layout_marginTop="75dp"-->
-<!--        android:background="@drawable/rounded_corner"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:layout_gravity="center_vertical|center_horizontal"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginEnd="16dp"/>-->
 </LinearLayout>

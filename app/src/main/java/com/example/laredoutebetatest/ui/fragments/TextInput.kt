@@ -2,33 +2,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.laredoutebetatest.R
+import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
 
-class TextInputFragment : Fragment() {
+class TextInput : Fragment() {
     private var userTitle: String? = null
+    private val myDataViewModel: DataViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_text_input, container, false)
-
         val titleEditText = rootView.findViewById<EditText>(R.id.titleEditText)
-//        val nextButton = rootView.findViewById<Button>(R.id.nextButton)
 
-        // Set a click listener for the "Next" button
-//        nextButton.setOnClickListener {
             userTitle = titleEditText.text.toString().trim()
-            // Handle the user's title input as needed, e.g., save it in a ViewModel
-
-            // Proceed to the next step or perform other actions
 
 
+        myDataViewModel.reviewFormData?.let { response ->
 
-//        }
+            val textField = response.fields?.find { it.id == "reviewtext" }
+            if (textField != null) {
+
+                val titleTextView = rootView.findViewById<TextView>(R.id.titleTextView)
+                titleTextView.text = textField.title.toString()
+            }
+        }
+
 
         return rootView
     }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FeedbackActivity"
+    tools:context=".ui.activities.FeedbackActivity"
     tools:ignore="ExtraText"
     android:id="@+id/fragmentGroup">
 
@@ -13,10 +13,10 @@
         android:id="@+id/coilImage"
         android:layout_width="fill_parent"
         android:layout_marginTop="0dp"
-        android:layout_height="0dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:foregroundGravity="center"
-        android:layout_marginBottom="118dp"
+        android:layout_marginBottom="18dp"
         android:src="@drawable/loading" />
 
     <me.relex.circleindicator.CircleIndicator3
