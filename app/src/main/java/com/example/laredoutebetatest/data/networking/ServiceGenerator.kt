@@ -8,7 +8,7 @@ object ServiceGenerator {
     private val client = OkHttpClient.Builder().build()
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://demo7925563.mockable.io")
+        .baseUrl("https://lfqib.free.beeceptor.com")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
@@ -17,16 +17,5 @@ object ServiceGenerator {
     fun <T> buildService(service: Class<T>): T {
         return retrofit.create(service)
     }
-
-
-//    fun <T> buildServiceWithPost(service: Class<T>, baseUrl: String): T {
-//        val retrofit = Retrofit.Builder()
-//            .baseUrl(baseUrl)
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .client(client)
-//            .build()
-//
-//        return retrofit.create(service)
-//    }
 
 }

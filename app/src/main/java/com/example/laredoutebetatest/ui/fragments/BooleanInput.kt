@@ -23,6 +23,8 @@ class BooleanInput : Fragment(), FragmentListener {
     private lateinit var noCheckBox: CheckBox
     private var dataCollectingListener: DataCollecting? = null
     private val myDataViewModel: DataViewModel by activityViewModels()
+    private var userInputProvided: Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -66,8 +68,8 @@ class BooleanInput : Fragment(), FragmentListener {
             noCheckBox.isChecked -> BOOLEAN_FALSE
             else -> ""
         }
-
         sendData(Constants.DATA_KEY_IS_RECOMMENDED, selectedValue)
+        userInputProvided = true
     }
 
     private fun sendData(name: String, value: String) {

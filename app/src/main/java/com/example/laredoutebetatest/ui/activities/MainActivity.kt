@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val authorizationKey = intent.getStringExtra("authorizationKey")
 
         setContentView(R.layout.activity_main)

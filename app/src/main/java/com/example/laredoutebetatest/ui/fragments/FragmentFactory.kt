@@ -12,7 +12,7 @@ import com.example.laredoutebetatest.data.model.ReviewFormResponse
 
 
 class FragmentFactory(private val activity: FragmentActivity) {
-    private val fragments = ArrayList<Fragment>()
+    val fragments = ArrayList<Fragment>()
     private val processedFieldIds = mutableSetOf<String>()
 
     fun setupViewPager(viewPager: ViewPager2) {

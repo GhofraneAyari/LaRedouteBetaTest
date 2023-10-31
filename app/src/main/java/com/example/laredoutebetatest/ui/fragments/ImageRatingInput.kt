@@ -1,5 +1,6 @@
 package com.example.laredoutebetatest.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -30,6 +31,8 @@ class ImageRatingInput : Fragment(), FragmentListener {
     private lateinit var ratingBar: RatingBar
     private lateinit var imageView: ImageView
     private lateinit var coilImage: ImageView
+    private var userInputProvided: Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +44,7 @@ class ImageRatingInput : Fragment(), FragmentListener {
         coilImage = requireActivity().findViewById(R.id.coilImage)
         val data = myDataViewModel.reviewFormData
 
-        coilImage.alpha = COIL_IMAGE_ALPHA_HIDDEN
-
+      //  coilImage.alpha = COIL_IMAGE_ALPHA_HIDDEN
 
         if (data != null) {
             val imageUrl = data.imageUrl
@@ -55,6 +57,7 @@ class ImageRatingInput : Fragment(), FragmentListener {
 
         ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
             userRating = rating
+            userInputProvided = true
             collectUserData()
         }
 
@@ -75,7 +78,7 @@ class ImageRatingInput : Fragment(), FragmentListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        coilImage.alpha = COIL_IMAGE_ALPHA_VISIBLE
+      //  coilImage.alpha = COIL_IMAGE_ALPHA_VISIBLE
     }
 
     override fun collectUserData() {
@@ -89,4 +92,14 @@ class ImageRatingInput : Fragment(), FragmentListener {
         Log.e("RECIEVED DATA FROM IMAGE RATING", nameValue.toString())
         dataCollectingListener?.onUserDataCollected(listOf(nameValue))
     }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is DataCollecting) {
+            dataCollectingListener = context
+        } else {
+            throw RuntimeException("$context must implement DataCollecting")
+        }
+    }
+
 }

@@ -12,16 +12,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
-import com.example.laredoutebetatest.data.model.ReviewFormResponse
 import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
 import com.example.laredoutebetatest.util.Constants
 import com.example.laredoutebetatest.data.model.NameValue
 
 
-class TextInput : Fragment() {
+class TextInput : Fragment(), FragmentListener {
     private var userTitle: String? = null
     private var dataCollectingListener: DataCollecting? = null
     private val myDataViewModel: DataViewModel by activityViewModels()
+    private var userInputProvided: Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,11 +43,12 @@ class TextInput : Fragment() {
         return rootView
     }
 
-    fun collectUserData() {
+    override fun collectUserData() {
         userTitle = view?.findViewById<EditText>(R.id.titleEditText)?.text?.toString()
 
         if (!userTitle.isNullOrBlank()) {
             sendData(Constants.DATA_KEY_USER_TEXT_INPUT, userTitle!!)
+            userInputProvided = true
         }
     }
 

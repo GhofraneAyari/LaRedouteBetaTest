@@ -23,6 +23,8 @@ class SelectInput : Fragment(), FragmentListener {
     private var selectedValue: String? = null
     private val dataViewModel: DataViewModel by activityViewModels()
     private var dataCollectingListener: DataCollecting? = null
+    private var userInputProvided: Boolean = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +52,7 @@ class SelectInput : Fragment(), FragmentListener {
                         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                             selectedValue = options[position]
                             collectUserData()
+                            userInputProvided = true
                         }
 
                         override fun onNothingSelected(parent: AdapterView<*>?) {

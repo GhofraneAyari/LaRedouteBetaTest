@@ -27,8 +27,10 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
     private val myDataViewModel: DataViewModel by viewModels()
     private lateinit var viewPager: ViewPager2
     private lateinit var coilImage: ImageView
-    private val currentPosition = 0
+    private var currentPosition = 0
     private val fragmentFactory: FragmentFactory by lazy { FragmentFactory(this) }
+    private var userInputProvided = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +53,13 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
         val clearButton = findViewById<Button>(Constants.BUTTON_CLEAR)
 
         nextButton.setOnClickListener {
-            navigateToNextFragment()
+            if (userInputProvided) {
+                navigateToNextFragment()
+            } else {
+                // Show a toast to inform the user to provide input
+                Toast.makeText(this, "Please provide input before proceeding", Toast.LENGTH_SHORT).show()
+            }
         }
-
         clearButton.setOnClickListener {
             finish()
         }
@@ -107,13 +113,19 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
     }
 
     private fun navigateToNextFragment() {
-        viewPager.setCurrentItem(currentPosition + 1, true)
+        currentPosition++
+        if (currentPosition < fragmentFactory.fragments.size) {
+            viewPager.setCurrentItem(currentPosition, true)
+        } else {
+            showCompletionMessage()
+        }
     }
 
     override fun receiveData(reviewField: ReviewFormResponse.ReviewField) {
     }
 
     override fun onUserDataCollected(data: List<NameValue>) {
+        userInputProvided = true
     }
 
     override fun sendUserData(userData: List<NameValue>) {
@@ -135,5 +147,10 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
 
             }
         })
+    }
+
+    private fun showCompletionMessage() {
+        Toast.makeText(this, "Your feedback has been sent!", Toast.LENGTH_SHORT).show()
+        finish()
     }
 }
