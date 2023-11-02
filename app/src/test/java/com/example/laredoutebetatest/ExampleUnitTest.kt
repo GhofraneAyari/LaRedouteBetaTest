@@ -14,11 +14,7 @@ import org.mockito.MockitoAnnotations
 import retrofit2.Call
 import retrofit2.Response
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
+
 class ApiServiceTest {
     @Mock
     private lateinit var apiService: ApiService
@@ -57,9 +53,7 @@ fun testGetFormData() {
 
     val call = Mockito.mock(Call::class.java) as Call<ReviewFormResponse>
     Mockito.`when`(apiService.getFormData()).thenReturn(call)
-
     Mockito.`when`(call.execute()).thenReturn(Response.success(responseData))
-
     val result = apiService.getFormData().execute()
 
         // Assert the result
@@ -79,12 +73,9 @@ fun testGetFormData() {
             NameValue("responseKey1", "responseValue1"),
             NameValue("responseKey2", "responseValue2")
         )
-
         val call = Mockito.mock(Call::class.java) as Call<List<NameValue>>
         Mockito.`when`(apiService.postUserInputData(inputData)).thenReturn(call)
-
         Mockito.`when`(call.execute()).thenReturn(Response.success(responseData))
-
         val result = apiService.postUserInputData(inputData).execute()
 
 

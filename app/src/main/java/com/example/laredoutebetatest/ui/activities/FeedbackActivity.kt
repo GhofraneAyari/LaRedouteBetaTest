@@ -32,6 +32,7 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
     private var userInputProvided = false
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feedback)
@@ -42,8 +43,6 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
     }
 
     private fun setupViews() {
-        val nextButton = findViewById<Button>(Constants.BUTTON_NEXT)
-        val clearButton = findViewById<Button>(Constants.BUTTON_CLEAR)
         viewPager = findViewById(R.id.view_pager2)
         coilImage = findViewById(R.id.coilImage)
     }
@@ -51,6 +50,7 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
     private fun setupButtonClickListeners() {
         val nextButton = findViewById<Button>(Constants.BUTTON_NEXT)
         val clearButton = findViewById<Button>(Constants.BUTTON_CLEAR)
+
 
         nextButton.setOnClickListener {
             if (userInputProvided) {
@@ -79,7 +79,6 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
                     if (reviewFormResponse != null) {
                         fragmentFactory.createFragments(reviewFormResponse)
                         fragmentFactory.setupViewPager(viewPager)
-
 
                     }
                 }
@@ -128,15 +127,16 @@ class FeedbackActivity : AppCompatActivity(), DataReceiver, DataCollecting {
         userInputProvided = true
     }
 
-    override fun sendUserData(userData: List<NameValue>) {
+    override fun sendUserData(data: List<NameValue>) {
         val serviceGenerator = ServiceGenerator.buildService(ApiService::class.java)
-        val call = serviceGenerator.postUserInputData(userData)
+        val call = serviceGenerator.postUserInputData(data)
 
 
         call.enqueue(object : Callback<List<NameValue>> {
             override fun onResponse(call: Call<List<NameValue>>, response: Response<List<NameValue>>) {
                 if (response.isSuccessful) {
                     Log.e("Success", Constants.MESSAGE_POST_SUCCESS)
+                    Log.e("success", response.toString())
 
                 }
             }

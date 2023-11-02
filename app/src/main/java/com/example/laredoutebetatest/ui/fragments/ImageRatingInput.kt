@@ -15,10 +15,7 @@ import coil.load
 import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
-import com.example.laredoutebetatest.data.model.ReviewFormResponse
 import com.example.laredoutebetatest.util.Constants
-import com.example.laredoutebetatest.util.Constants.COIL_IMAGE_ALPHA_HIDDEN
-import com.example.laredoutebetatest.util.Constants.COIL_IMAGE_ALPHA_VISIBLE
 import com.example.laredoutebetatest.util.Constants.DATA_KEY_USER_RATING
 import com.example.laredoutebetatest.data.model.NameValue
 

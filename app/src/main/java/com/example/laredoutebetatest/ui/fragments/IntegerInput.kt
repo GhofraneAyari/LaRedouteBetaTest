@@ -12,7 +12,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.laredoutebetatest.R
 import com.example.laredoutebetatest.data.model.DataCollecting
 import com.example.laredoutebetatest.data.model.NameValue
-import com.example.laredoutebetatest.data.model.ReviewFormResponse
 import com.example.laredoutebetatest.ui.viewmodel.DataViewModel
 import com.example.laredoutebetatest.util.Constants
 

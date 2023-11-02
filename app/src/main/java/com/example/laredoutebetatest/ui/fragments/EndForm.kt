@@ -33,6 +33,7 @@ class EndForm : Fragment(), DataCollecting {
         nextButton?.setOnClickListener {
 
             userDataProvider?.provideUserData(collectedUserData)
+            sendUserData(collectedUserData)
             activity?.finish()
         }
     }
